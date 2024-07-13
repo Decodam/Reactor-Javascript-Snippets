@@ -1,0 +1,241 @@
+{
+  "React Component": {
+    "prefix": "rfc",
+    "body": [
+      "import React from 'react';",
+      "",
+      "export default function ${TM_FILENAME_BASE}({}) {",
+      "  return (",
+      "    <div>",
+      "      ${TM_FILENAME_BASE}",
+      "    </div>",
+      "  );",
+      "}"
+    ],
+    "description": "Create a React component"
+  },
+  "useState Hook": {
+    "prefix": "state",
+    "body": [
+      "const [${1:state}, set${1/(.*)/${1:/capitalize}/}] = useState(${2:initialState});"
+    ],
+    "description": "React useState hook"
+  },
+  "useEffect Hook": {
+    "prefix": "effect",
+    "body": [
+      "useEffect(() => { ${1:effect} }, [${2:dependencies}]);"
+    ],
+    "description": "React useEffect hook"
+  },
+  "Create React Context": {
+    "prefix": "crc",
+    "body": [
+      "import React, { createContext, useState } from 'react';",
+      "",
+      "// Create the context",
+      "export const ${1:Title}Context = createContext();",
+      "",
+      "// Create a provider component",
+      "export const ${1:Title}Provider = ({ children }) => {",
+      "  const [${1:title}, set${1/(.*)/${1:/capitalize}/}] = useState();",
+      "",
+      "  return (",
+      "    <${1:Title}Context.Provider value={{ ${1:title}, set${1/(.*)/${1:/capitalize}/} }}>",
+      "      {children}",
+      "    </${1:Title}Context.Provider>",
+      "  );",
+      "};"
+    ],
+    "description": "Create a new React context with a provider component."
+  },
+  "Use React Context": {
+    "prefix": "urc",
+    "body": [
+      "const [${1:title}, set${1/(.*)/${1:/capitalize}/}] = useContext(${1/(.*)/${1:/capitalize}/}Context);"
+    ],
+    "description": "Use a React context in a component."
+  },
+  "Next Server Component": {
+    "prefix": "njs",
+    "body": [
+      "",
+      "",
+      "export default function ${TM_FILENAME_BASE}({}) {",
+      "  return (",
+      "    <div>",
+      "      ${TM_FILENAME_BASE}",
+      "    </div>",
+      "  );",
+      "}"
+    ],
+    "description": "Create a Next JS Server component"
+  },
+  "Next Fetch Component": {
+    "prefix": "njf",
+    "body": [
+      "import axios from 'axios';",
+      "",
+      "export default async function ${TM_FILENAME_BASE}({}) {",
+      "  const response = await axios.get('');",
+      "  const data = response.data;",
+      "",
+      "  return (",
+      "    <div>",
+      "      ${TM_FILENAME_BASE}",
+      "    </div>",
+      "  );",
+      "}"
+    ],
+    "description": "Create a Next JS Server Fetch component"
+  },
+  "Next Client Component": {
+    "prefix": "njc",
+    "body": [
+      "'use client';",
+      "",
+      "export default function ${TM_FILENAME_BASE}({}) {",
+      "  return (",
+      "    <div>",
+      "      ${TM_FILENAME_BASE}",
+      "    </div>",
+      "  );",
+      "}"
+    ],
+    "description": "Create a Next Client component"
+  },
+  "React Native Component": {
+    "prefix": "rnfc",
+    "body": [
+      "import React from 'react';",
+      "import { View, Text, StyleSheet } from 'react-native';",
+      "",
+      "",
+      "export default function ${TM_FILENAME_BASE}({ navigation }) {",
+      "  return (",
+      "    <View style={styles.container}>",
+      "      <Text>${TM_FILENAME_BASE}</Text>",
+      "    </View>",
+      "  );",
+      "};",
+      "",
+      "",
+      "const styles = StyleSheet.create({",
+      "  container: {",
+      "    flex: 1,",
+      "    background: '#fff',",
+      "    justifyContent: 'center',",
+      "    alignItems: 'center',",
+      "  },",
+      "});"
+    ],
+    "description": "Create a new React Native component with default function syntax."
+  },
+  "React Native Fullscreen ScrollView": {
+    "prefix": "rnfsd",
+    "body": [
+      "import React from 'react';",
+      "import { View, ScrollView, Text, StyleSheet } from 'react-native';",
+      "",
+      "export default function ${TM_FILENAME_BASE}() {",
+      "  return (",
+      "    <ScrollView contentContainerStyle={styles.scrollContainer}>",
+      "      <View style={styles.container}>",
+      "        <Text>${TM_FILENAME_BASE}</Text>",
+      "      </View>",
+      "    </ScrollView>",
+      "  );",
+      "}",
+      "",
+      "",
+      "const styles = StyleSheet.create({",
+      "  scrollContainer: {",
+      "    flexGrow: 1,",
+      "    background: '#fff',",
+      "  },",
+      "  container: {",
+      "    flex: 1,",
+      "    justifyContent: 'center',",
+      "    alignItems: 'center',",
+      "  },",
+      "});"
+    ],
+    "description": "Create a fullscreen ScrollView component in React Native with default function syntax."
+  },
+  "React Native Fullscreen ScrollView with SafeArea": {
+    "prefix": "rnfcs",
+    "body": [
+      "import React from 'react';",
+      "import { View, ScrollView, Text, StyleSheet } from 'react-native';",
+      "import { useSafeAreaInsets } from 'react-native-safe-area-context';",
+      "",
+      "",
+      "export default function ${TM_FILENAME_BASE}() {",
+      "  const insets = useSafeAreaInsets();",
+      "  return (",
+      "    <ScrollView",
+      "      contentContainerStyle={[styles.scrollContainer, {",
+      "        paddingTop: insets.top,",
+      "        paddingBottom: insets.bottom,",
+      "        paddingLeft: insets.left,",
+      "        paddingRight: insets.right",
+      "      }]}>",
+      "      <View style={styles.container}>",
+      "        <Text>${TM_FILENAME_BASE}</Text>",
+      "      </View>",
+      "    </ScrollView>",
+      "  );",
+      "}",
+      "",
+      "",
+      "const styles = StyleSheet.create({",
+      "  scrollContainer: {",
+      "    flexGrow: 1,",
+      "    background: '#fff',",
+      "  },",
+      "  container: {",
+      "    flex: 1,",
+      "    justifyContent: 'center',",
+      "    alignItems: 'center',",
+      "  },",
+      "});"
+    ],
+    "description": "Create a fullscreen ScrollView component with SafeArea in React Native with default function syntax."
+  },
+  "Console log": {
+    "prefix": "log",
+    "body": [
+      "console.log('${1:message}');"
+    ],
+    "description": "Log a message or variable to the console."
+  },
+  "Fetch API": {
+    "prefix": "ftc",
+    "body": [
+      "fetch('${1:url}')",
+      "  .then(response => response.json())",
+      "  .then(data => {",
+      "    console.log(data);",
+      "  })",
+      "  .catch(error => {",
+      "    console.error('Fetch Error:', error);",
+      "  });"
+    ],
+    "description": "Fetch data from an API using the Fetch API."
+  },
+  "Axios": {
+    "prefix": "axget",
+    "body": [
+      "import axios from 'axios';",
+      "",
+      "axios.get('${1:url}')",
+      "  .then(response => {",
+      "    console.log(response.data);",
+      "  })",
+      "  .catch(error => {",
+      "    console.error('Axios Error:', error);",
+      "  });"
+    ],
+    "description": "Make an HTTP GET request using Axios."
+  }
+}
